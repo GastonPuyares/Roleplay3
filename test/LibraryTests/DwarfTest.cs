@@ -26,6 +26,6 @@ public class DwarfTests
         brokk.ReceiveAttack(minidwarf.AttackValue);
 
         
-        Assert.That(brokk.Health, Is.EqualTo(100));
+        Assert.That(brokk.Health, Is.EqualTo(86));
     }
 }

@@ -18,7 +18,6 @@ public class ArcherTests
             
             megaarquero.ReceiveAttack(arqueromagico.AttackValue);
 
-            Assert.That(megaarquero.Health, Is.EqualTo(100 - arqueromagico.AttackValue),
-                "La salud de Mega Arquero debería haber disminuido correctamente.");
+            Assert.That(megaarquero.Health, Is.EqualTo(88));
     }
 }

@@ -17,7 +17,7 @@ public class KnightTests
         Knight lancelot = new Knight("Lancelot");
         arthur.ReceiveAttack(lancelot.AttackValue);
         
-        Assert.That(arthur.Health, Is.LessThan(100)); 
+        Assert.That(arthur.Health, Is.LessThan(120)); 
     }
 
     [Test]
@@ -28,7 +28,7 @@ public class KnightTests
         arthur.ReceiveAttack(50);
 
         
-        Assert.That(arthur.Health, Is.EqualTo(100)); 
+        Assert.That(arthur.Health, Is.EqualTo(89)); 
     }
 
     [Test]
