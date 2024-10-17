@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Dwarf: ICharacter
+public class Archer: ICharacter
 {
     private int health = 100;
 
     private List<IItem> items = new List<IItem>();
 
-    public Dwarf(string name)
+    public Archer(string name)
     {
         this.Name = name;
 
-        this.AddItem(new Axe());
+        this.AddItem(new Bow());
         this.AddItem(new Helmet());
     }
 
@@ -57,7 +57,14 @@ public class Dwarf: ICharacter
         }
         private set
         {
-            this.health = value < 0 ? 0 : value;
+            if (value < 0)
+            {
+                this.health = 0;
+            }
+            else
+            {
+                this.health = value;
+            }
         }
     }
 

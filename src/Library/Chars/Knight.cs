@@ -1,18 +1,19 @@
 using System.Collections.Generic;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Archer: ICharacter
+public class Knight: ICharacter
 {
     private int health = 100;
 
     private List<IItem> items = new List<IItem>();
 
-    public Archer(string name)
+    public Knight(string name)
     {
         this.Name = name;
 
-        this.AddItem(new Bow());
-        this.AddItem(new Helmet());
+        this.AddItem(new Sword());
+        this.AddItem(new Armor());
+        this.AddItem(new Shield());
     }
 
     public string Name { get; set; }
@@ -57,7 +58,14 @@ public class Archer: ICharacter
         }
         private set
         {
-            this.health = value < 0 ? 0 : value;
+            if (value < 0)
+            {
+                this.health = 0;
+            }
+            else
+            {
+                this.health = value;
+            }
         }
     }
 

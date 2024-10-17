@@ -1,19 +1,19 @@
 using System.Collections.Generic;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Knight: ICharacter
+public class Wizard: IMagicCharacter
 {
     private int health = 100;
 
     private List<IItem> items = new List<IItem>();
 
-    public Knight(string name)
+    private List<IMagicalItem> magicalItems = new List<IMagicalItem>();
+
+    public Wizard(string name)
     {
         this.Name = name;
 
-        this.AddItem(new Sword());
-        this.AddItem(new Armor());
-        this.AddItem(new Shield());
+        this.AddItem(new Staff());
     }
 
     public string Name { get; set; }
@@ -28,6 +28,13 @@ public class Knight: ICharacter
                 if (item is IAttackItem)
                 {
                     value += (item as IAttackItem).AttackValue;
+                }
+            }
+            foreach (IMagicalItem item in this.magicalItems)
+            {
+                if (item is IMagicalAttackItem)
+                {
+                    value += (item as IMagicalAttackItem).AttackValue;
                 }
             }
             return value;
@@ -46,6 +53,13 @@ public class Knight: ICharacter
                     value += (item as IDefenseItem).DefenseValue;
                 }
             }
+            foreach (IMagicalItem item in this.magicalItems)
+            {
+                if (item is IMagicalDefenseItem)
+                {
+                    value += (item as IMagicalDefenseItem).DefenseValue;
+                }
+            }
             return value;
         }
     }
@@ -58,7 +72,14 @@ public class Knight: ICharacter
         }
         private set
         {
-            this.health = value < 0 ? 0 : value;
+            if (value < 0)
+            {
+                this.health = 0;
+            }
+            else
+            {
+                this.health = value;
+            }
         }
     }
 
@@ -84,4 +105,15 @@ public class Knight: ICharacter
     {
         this.items.Remove(item);
     }
+
+    public void AddItem(IMagicalItem item)
+    {
+        this.magicalItems.Add(item);
+    }
+
+    public void RemoveItem(IMagicalItem item)
+    {
+        this.magicalItems.Remove(item);
+    }
+
 }
