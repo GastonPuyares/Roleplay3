@@ -1,9 +1,12 @@
 using System.Collections.Generic;
+using Library.Chars;
+
 namespace Ucu.Poo.RoleplayGame;
 
-public class Dwarf: ICharacter
+public class Dwarf: IHero
 {
     private int health = 100;
+    private int victorypoints = 0;
 
     private List<IItem> items = new List<IItem>();
 
@@ -16,6 +19,23 @@ public class Dwarf: ICharacter
     }
 
     public string Name { get; set; }
+
+    public int VictoryPoints
+    {
+        get
+        {
+            return this.victorypoints;
+        }
+    }
+    
+    public void AddVictoryPoints(int vp)
+    {
+        this.victorypoints += vp;
+        if (this.victorypoints >= 5)
+        {
+            this.Cure();
+        }
+    }
 
     public int AttackValue
     {

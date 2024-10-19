@@ -17,7 +17,14 @@ namespace Library.Chars
         }
 
         public string Name { get; set; }
-        public int VP;
+        public int VP
+        {
+            get
+            {
+                return this.vp;
+            }
+        }
+        
         public int AttackValue
         {
             get

@@ -3,9 +3,10 @@ using Library.Chars;
 
 namespace Ucu.Poo.RoleplayGame;
 
-public class Wizard: IMagicCharacter
+public class Wizard: IMagicCharacter, IHero
 {
     private int health = 100;
+    private int victorypoints = 0;
     private List<IItem> items = new List<IItem>();
     private List<IMagicalItem> magicalItems = new List<IMagicalItem>();
 
@@ -18,6 +19,24 @@ public class Wizard: IMagicCharacter
 
     public string Name { get; set; }
 
+    public int VictoryPoints
+    {
+        get
+        {
+            return this.victorypoints;
+        }
+    }
+    
+    public void AddVictoryPoints(int vp)
+    {
+        this.victorypoints += vp;
+        if (this.VictoryPoints >= 5)
+        {
+            this.Cure();
+        }
+    }
+    
+    
     public int AttackValue
     {
         get
