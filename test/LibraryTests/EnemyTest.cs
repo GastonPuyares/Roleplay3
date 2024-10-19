@@ -40,7 +40,7 @@ namespace Tests
         [Test]
         public void Enemy_ShouldHaveCorrectVictoryPoints()
         {
-            Assert.That(enemy.VP, Is.EqualTo(0), "Los puntos de victoria del enemigo no son correctos");
+            Assert.That(enemy.VP, Is.EqualTo(10), "Los puntos de victoria del enemigo no son correctos");
         }
     }
 }

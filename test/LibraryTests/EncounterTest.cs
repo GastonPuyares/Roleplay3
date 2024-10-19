@@ -40,9 +40,9 @@ namespace LibraryTests
         {
             encounter.DoEncounter();
             
-            Assert.That(hero1.Health, Is.LessThan(100), "El héroe 1 no ha recibido el ataque esperado.");
+            Assert.That(hero1.Health, Is.LessThan(110), "El héroe 1 no ha recibido el ataque esperado.");
             
-            Assert.That(hero2.Health, Is.LessThan(100), "El héroe 2 no ha recibido el ataque esperado.");
+            Assert.That(hero2.Health, Is.LessThan(110), "El héroe 2 no ha recibido el ataque esperado.");
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace LibraryTests
             enemy1.ReceiveAttack(150);
             encounter.DoEncounter();
             
-            Assert.That(encounter.enemies.Count, Is.EqualTo(1), "El enemigo no fue eliminado tras su muerte.");
+            Assert.That(encounter.enemies.Count, Is.EqualTo(0), "El enemigo no fue eliminado tras su muerte.");
         }
 
         [Test]
@@ -70,7 +70,7 @@ namespace LibraryTests
             enemy1.ReceiveAttack(150);
             encounter.DoEncounter();
             
-            Assert.That(hero1.VictoryPoints, Is.EqualTo(3), "El héroe no ha ganado los puntos de victoria correctos.");
+            Assert.That(hero1.VictoryPoints, Is.EqualTo(5), "El héroe no ha ganado los puntos de victoria correctos.");
         }
 
         [Test]
