@@ -1,12 +1,12 @@
 using System.Collections.Generic;
+using Library.Chars;
+
 namespace Ucu.Poo.RoleplayGame;
 
 public class Wizard: IMagicCharacter
 {
     private int health = 100;
-
     private List<IItem> items = new List<IItem>();
-
     private List<IMagicalItem> magicalItems = new List<IMagicalItem>();
 
     public Wizard(string name)

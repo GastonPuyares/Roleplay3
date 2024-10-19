@@ -71,9 +71,10 @@ public class Knight: ICharacter
 
     public void ReceiveAttack(int power)
     {
-        if (this.DefenseValue < power)
+        int damage = power - this.DefenseValue; 
+        if (damage > 0) 
         {
-            this.Health -= power - this.DefenseValue;
+            this.Health -= damage;
         }
     }
 
